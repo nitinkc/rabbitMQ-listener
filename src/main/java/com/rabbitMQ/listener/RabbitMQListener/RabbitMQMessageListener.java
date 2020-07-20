@@ -10,13 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class RabbitMQMessageListener implements MessageListener {
 	
-	@Value("${rabbitmq.hostname}")
-    private String hostName;
-	
     @Override
     public void onMessage(Message message) {
+    	
         String receivedMessage = new String(message.getBody());
-        System.out.println("message = " + receivedMessage);
-        System.out.println(hostName);
+        System.out.println("message = " + receivedMessage.toString());
     }
 }
